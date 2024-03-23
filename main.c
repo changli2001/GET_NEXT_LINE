@@ -9,6 +9,8 @@ int main()
     {
         s = get_next_line(fd);
         printf("%s", s);
+        if(i == 2)
+            close (fd);
         free(s);
         i++;
     }

@@ -6,7 +6,7 @@
 /*   By: ochangli <ochangli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 07:05:27 by ochangli          #+#    #+#             */
-/*   Updated: 2024/03/23 16:40:07 by ochangli         ###   ########.fr       */
+/*   Updated: 2024/03/23 17:35:51 by ochangli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ char *get_next_line(int fd)
                 s_line = build_S_line(s_line);
                 
                 if(!s_line)
-                    return(free(s_line) , s_line = NULL, NULL);
+                    return(free(v_line), v_line = NULL, NULL);
             return(v_line);
             }
-        return(free(s_line), s_line = NULL, v_line); //!!!!!!!!!!!!
+        return(free(s_line), s_line = NULL, v_line); 
         }
     free (s_line);
     s_line = NULL;
@@ -60,11 +60,9 @@ char *get_next_line(int fd)
         {
             if (buffer[str_lenght(buffer)])
             {
-                //puts("===");
                 s_line = build_S_line(buffer);
                 if(!s_line)
-                    return(free(v_line), \
-                    free(buffer),buffer = NULL, v_line = NULL, NULL);
+                    return(free(v_line),v_line = NULL, NULL);
                 return (v_line);
             }
         return(free(buffer), buffer = NULL, v_line);
