@@ -5,7 +5,7 @@ int main()
     int fd;
     int i = 0;
     fd = open("file.txt", O_RDONLY);
-    while (i < 100)
+    while (i < 20)
     {
         s = get_next_line(fd);
         printf("%s", s);

@@ -12,10 +12,10 @@ void	ft_concatinate(char *str1, char *str2, int len);
 int		check_n_line(const char *str);
 char	*build_s_line(char *str);
 char	*get_next_line(int fd);
-
+char *building(char **s_line, char **v_line);
 #endif
 
 #ifndef BUFFER_SIZE
-    #define BUFFER_SIZE 42
+    #define BUFFER_SIZE 1
 #endif
 

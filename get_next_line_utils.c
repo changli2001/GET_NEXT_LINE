@@ -6,7 +6,7 @@
 /*   By: ochangli <ochangli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:36:46 by ochangli          #+#    #+#             */
-/*   Updated: 2024/03/24 06:10:38 by ochangli         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:45:16 by ochangli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,7 @@ char	*build_s_line(char *str)
 	}
 	new = malloc(i - k + 1);
 	if (!new)
-	{
-		free(str);
-		str = NULL;
 		return (free(str), str = NULL, NULL);
-	}
 	while (str[k] != '\0')
 		new[j++] = str[k++];
 	new[j] = '\0';
@@ -90,7 +86,7 @@ char	*build_v_line(char	*b_s_line, char	*v_line)
 	char	*rtn_line;
 	size_t	v_line_lenght;
 	size_t	b_s_line_lenght;
-
+	
 	v_line_lenght = str_lenght(v_line);
 	b_s_line_lenght = str_lenght(b_s_line);
 	rtn_line = malloc(v_line_lenght + b_s_line_lenght + 1);
@@ -98,10 +94,13 @@ char	*build_v_line(char	*b_s_line, char	*v_line)
 		return (free(v_line), v_line = NULL, NULL);
 	if (v_line)
 	{
+		
 		ft_concatinate(rtn_line, v_line, v_line_lenght);
 		free(v_line);
 		v_line = NULL;
 	}
+	
 	ft_concatinate(rtn_line + v_line_lenght, b_s_line, b_s_line_lenght);
+	//printf("[%s]", rtn_line);
 	return (rtn_line);
 }
